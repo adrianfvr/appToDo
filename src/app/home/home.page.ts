@@ -48,4 +48,35 @@ export class HomePage {
     task.done = !task.done;
     console.log(this.tasks);
   };
+
+  deleteTask = (task: ITask) => {
+    this.tasks.splice(this.tasks.indexOf(task), 1);
+  };
+
+  updateTask = async (task: ITask) => {
+    const alert = await this._AlertController.create({
+      header: 'Editar tarea',
+      inputs: [
+        {
+          type: 'text',
+          name: 'title',
+          value: task.title,
+        },
+      ],
+      buttons: [
+        {
+          text: 'Actualizar',
+          handler: (data) => {
+            this.tasks[this.tasks.indexOf(task)].title = data.title;
+          },
+        },
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+        },
+      ],
+    });
+
+    await alert.present();
+  };
 }
