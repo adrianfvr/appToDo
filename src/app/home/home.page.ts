@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ITask } from '../interfaces/ITask';
-import { AlertController } from '@ionic/angular';
+import { AlertController, IonItemSliding } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-home',
@@ -44,9 +45,10 @@ export class HomePage {
     await alert.present();
   }
 
-  toggleTaskDone = (task: ITask) => {
+  toggleTaskDone = (task: ITask, slidingItem: IonItemSliding) => {
     task.done = !task.done;
     console.log(this.tasks);
+    slidingItem.close();
   };
 
   deleteTask = (task: ITask) => {
