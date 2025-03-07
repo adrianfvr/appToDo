@@ -15,30 +15,35 @@ export class HomePage {
       title: 'Hello',
       description: 'lorem impus dor',
       done: false,
+      iconName: 'checkmark-circle',
     },
     {
       id: 1,
       title: 'Hello',
       description: 'lorem impus dor',
       done: false,
+      iconName: 'checkmark-circle',
     },
     {
       id: 1,
       title: 'Hello',
       description: 'lorem impus dor',
       done: false,
+      iconName: 'checkmark-circle',
     },
     {
       id: 1,
       title: 'Hello',
       description: 'lorem impus dor',
       done: false,
+      iconName: 'checkmark-circle',
     },
     {
       id: 1,
       title: 'Hello',
       description: 'lorem impus dor',
       done: false,
+      iconName: 'checkmark-circle',
     },
   ];
 
@@ -79,6 +84,7 @@ export class HomePage {
               title: data.title,
               description: data.description,
               done: false,
+              iconName: 'checkmark-circle',
             });
             return true;
           },
@@ -95,6 +101,7 @@ export class HomePage {
 
   toggleTaskDone = (task: ITask, slidingItem: IonItemSliding) => {
     task.done = !task.done;
+    task.iconName = task.done ? 'ban' : 'checkmark-circle';
     slidingItem.close();
   };
 

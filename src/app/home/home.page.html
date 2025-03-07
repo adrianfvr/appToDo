@@ -27,7 +27,7 @@
           ><ion-icon
             id="task-icon-{{ item.id }}"
             slot="icon-only"
-            name="checkmark-circle"
+            [name]="item.iconName"
             class="task-option"
           ></ion-icon
         ></ion-item-option>
