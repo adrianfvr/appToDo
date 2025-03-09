@@ -9,7 +9,7 @@
   <ion-list *ngIf="tasks && tasks.length > 0; else noTasksTemplate">
     <ion-item-sliding *ngFor="let item of tasks" #slidingItem>
       <ion-item (click)="updateTask(item)" class="task-item">
-        <ion-label [ngClass]="item.done ? 'task-done' : ''">
+        <ion-label [ngClass]="item.done ? 'task-done' : ''" class="task-label">
           <div class="item-container">
             <div class="item-id">{{ item.id }}</div>
             <div class="item-content">
@@ -18,7 +18,7 @@
             </div>
           </div>
         </ion-label>
-        <ion-icon name="chevron-back"></ion-icon>
+        <ion-icon class="ion-icon" name="chevron-back"></ion-icon>
       </ion-item>
       <ion-item-options>
         <ion-item-option

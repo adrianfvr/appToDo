@@ -13,7 +13,7 @@ export class HomePage {
     {
       id: 1,
       title: 'Hello',
-      description: 'lorem impus dor',
+      description: 'lorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dor',
       done: false,
       iconName: 'checkmark-circle',
     },
@@ -69,7 +69,6 @@ export class HomePage {
           text: 'Add',
           handler: async (data) => {
             if (!data.title.trim()) {
-              // Verifica si el título está vacío
               const errorAlert = await this._AlertController.create({
                 header: 'Error',
                 message: 'You must enter a title. ',
@@ -119,7 +118,7 @@ export class HomePage {
           value: task.title,
         },
         {
-          type: 'text',
+          type: 'textarea',
           name: 'description',
           value: task.description,
         },

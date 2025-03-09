@@ -1,17 +1,24 @@
+.header__title {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: .24rem;
+}
+
 .item-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
   align-items: center;
 }
 
 .item-id {
-  width: 40px;
+  padding-right: 10px;
   text-align: center;
   font-weight: bold;
 }
 
 .item-content {
-  flex-grow: 1;
-  padding-left: 10px;
+  overflow: hidden;
 }
 
 .item-title {
@@ -22,15 +29,24 @@
 .item-description {
   font-size: 0.9rem;
   color: #666666;
+  height: 25px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-y: scroll;
+  line-height: 25px;
 }
-
+.ion-icon {
+  flex: 0 0 auto;
+  margin-left: 10px;
+}
 .empty-message {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   text-align: center;
-  color: #999999; /* Color del mensaje vacío */
+  color: #999999;
 }
 
 .task-done {
