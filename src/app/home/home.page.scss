@@ -1,7 +1,9 @@
 .header__title {
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 1.5rem;
   letter-spacing: .24rem;
+  color: var(--ion-color-secondary);
 }
 
 .item-container {
@@ -39,6 +41,7 @@
 .ion-icon {
   flex: 0 0 auto;
   margin-left: 10px;
+  color: var(--ion-color-primary);
 }
 .empty-message {
   display: flex;
@@ -55,5 +58,5 @@
 }
 
 .task-option {
-  color: #1e1e1e;
+  // color: var(--ion-background-color) !important;
 }
