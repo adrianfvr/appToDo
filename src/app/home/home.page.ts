@@ -12,36 +12,8 @@ export class HomePage {
   tasks: ITask[] = [
     {
       id: 1,
-      title: 'Hello',
-      description: 'lorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dorlorem impus dor',
-      done: false,
-      iconName: 'checkmark-circle',
-    },
-    {
-      id: 1,
-      title: 'Hello',
-      description: 'lorem impus dor',
-      done: false,
-      iconName: 'checkmark-circle',
-    },
-    {
-      id: 1,
-      title: 'Hello',
-      description: 'lorem impus dor',
-      done: false,
-      iconName: 'checkmark-circle',
-    },
-    {
-      id: 1,
-      title: 'Hello',
-      description: 'lorem impus dor',
-      done: false,
-      iconName: 'checkmark-circle',
-    },
-    {
-      id: 1,
-      title: 'Hello',
-      description: 'lorem impus dor',
+      title: 'Title Test',
+      description: 'Description Test',
       done: false,
       iconName: 'checkmark-circle',
     },
@@ -104,8 +76,15 @@ export class HomePage {
     slidingItem.close();
   };
 
+  updateIDs = () => {
+    for (let i = 0; i < this.tasks.length; i++) {
+      this.tasks[i].id = i + 1;
+    }
+  };
+
   deleteTask = (task: ITask) => {
     this.tasks.splice(this.tasks.indexOf(task), 1);
+    this.updateIDs();
   };
 
   updateTask = async (task: ITask) => {
