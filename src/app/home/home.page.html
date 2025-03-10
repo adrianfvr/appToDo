@@ -1,29 +1,49 @@
-<ion-header [translucent]="true">
+<!-- Header -->
+<ion-header>
   <ion-toolbar>
-    <ion-title> Mis Tareas </ion-title>
+    <ion-title class="header__title" align="center">To Do List</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-list>
+<!-- Main -->
+<ion-content class="main" [fullscreen]="true">
+  <ion-list *ngIf="tasks && tasks.length > 0; else noTasksTemplate">
     <ion-item-sliding *ngFor="let item of tasks" #slidingItem>
-      <ion-item (click)="updateTask(item)">
-        <ion-label [ngClass]="item.done ? 'task-done' : ''"
-          >{{item.id}} {{item.title}}</ion-label
-        >
+      <ion-item (click)="updateTask(item)" class="task-item">
+        <ion-label [ngClass]="item.done ? 'task-done' : ''" class="task-label">
+          <div class="item-container">
+            <div class="item-id">{{ item.id }}</div>
+            <div class="item-content">
+              <div class="item-title">{{ item.title }}</div>
+              <div class="item-description">{{ item.description }}</div>
+            </div>
+          </div>
+        </ion-label>
+        <ion-icon class="ion-icon" name="chevron-back"></ion-icon>
       </ion-item>
       <ion-item-options>
-        <ion-item-option (click)="toggleTaskDone(item,slidingItem)" color="success"
-          >Done</ion-item-option
-        >
-        <ion-item-option (click)="deleteTask(item)" color="danger"
-          ><ion-icon name="trash"></ion-icon></ion-item-option
-        >
+        <ion-item-option
+          color="success"
+          (click)="toggleTaskDone(item,slidingItem)"
+          ><ion-icon
+            id="task-icon-{{ item.id }}"
+            slot="icon-only"
+            [name]="item.iconName"
+            class="task-option"
+          ></ion-icon
+        ></ion-item-option>
+        <ion-item-option (click)="deleteTask(item)" color="danger">
+          <ion-icon slot="icon-only" name="trash" class="task-option"></ion-icon
+        ></ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="open()">
+  <ng-template #noTasksTemplate>
+    <div class="empty-message">
+      <h2>There are no tasks</h2>
+    </div>
+  </ng-template>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" (click)="open()">
+    <ion-fab-button>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
